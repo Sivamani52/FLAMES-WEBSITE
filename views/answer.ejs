@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flames Answer</title>
 
 <style>
@@ -20,87 +20,68 @@
         background: linear-gradient(135deg, #ffb7ff, #b3e5ff);
         color: #222;
         transition: background 0.5s, color 0.5s;
-        padding: 12px;
     }
 
-    body.dark{
+    body.dark {
         background: #121212;
         color: #f1f1f1;
     }
 
     .card{
-        background: #ffffff;
-        padding: 22px 18px;
+        background: white;
+        padding: 35px 45px;
         border-radius: 18px;
         box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         text-align: center;
-        width: 100%;
-        max-width: 450px;
+        max-width: 420px;
         transition: background 0.5s, color 0.5s;
     }
 
-    body.dark .card{
+    body.dark .card {
         background: #1e1e1e;
         color: #f1f1f1;
     }
 
-    h3{
-        margin-top: 0;
-        font-size: clamp(18px, 5vw, 22px);
-    }
-
     .result{
-        font-size: clamp(15px, 4vw, 18px);
+        font-size: 20px;
         font-weight: bold;
         margin-top: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 12px;
+        gap: 16px;
         flex-wrap: wrap;
-        text-align: center;
     }
 
     .img{
-        width: 100%;
-        max-width: 260px;
-        height: auto;
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
         border-radius: 15px;
         display: block;
-        margin: 16px auto;
-        box-shadow: 0 0 10px rgba(0,0,0,0.35);
+        margin: 20px auto;
+        box-shadow: 0px 0px 10px gray;
     }
 
-    button{
-        border-radius: 12px;
+    button {
+        border-radius: 10px;
         border: none;
         background: #00bcd4;
         color: white;
         font-weight: bold;
-        padding: 12px 14px;
+        padding: 8px 12px;
         cursor: pointer;
         margin: 10px 5px 0 5px;
         transition: transform 0.2s;
-        min-width: 120px;
     }
 
-    button:active{
-        transform: scale(0.97);
+    button:hover {
+        transform: scale(1.05);
     }
 
-    p.funny{
-        font-size: clamp(12px, 3.5vw, 14px);
-        margin: 6px 0;
-    }
-
-    @media(max-width: 360px){
-        .card{
-            padding: 16px 12px;
-        }
-
-        button{
-            width: 100%;
-        }
+    p.funny {
+        font-size: 14px;
+        margin: 5px 0;
     }
 </style>
 </head>
@@ -110,17 +91,18 @@
 
     <h3>🔥 This is only a game — not reality 😄</h3>
 
+    <!-- Dark mode & Music buttons -->
     <div>
         <button id="darkModeToggle">🌙 Dark Mode</button>
         <button onclick="toggleMusic()">🎵 Music On/Off</button>
     </div>
 
-    <audio id="bgMusic" src="/music/indila.mpeg" autoplay loop></audio>
+    <!-- Background Music -->
+    <audio id="bgMusic" src="/music/indilla.mpeg" autoplay loop></audio>
 
     <div class="result">
         <div>
-            <%= realname %> and <%= ActalFrdname %> become 👉
-            <span style="color:rgba(0,128,0,0.7)"><%= relationship %></span>
+            <%= realname %> and <%= ActalFrdname %> become 👉 <span style="color:rgba(0, 128, 0, 0.53)"><%= relationship %></span>
         </div>
 
         <% if (relationship === 'Friends') { %>
@@ -135,7 +117,7 @@
 
         <% if (relationship === 'Affection') { %>
             <img src="/images/affection.jpg" class="img">
-            <p class="funny">Lots of affection 😊 but the Wi-Fi password is still secret!</p>
+            <p class="funny">Lots of affection 😊 but Wi-Fi password still secret!</p>
         <% } %>
 
         <% if (relationship === 'Marriage') { %>
@@ -150,36 +132,31 @@
 
         <% if (relationship === 'Siblings') { %>
             <img src="/images/siblings.jpg" class="img">
-            <p class="funny">Siblings detected: free insults for a lifetime 😆</p>
+            <p class="funny">Siblings detected: free insults for lifetime 😆</p>
         <% } %>
     </div>
 
-    <p class="funny">
-        This is just a game. Don’t break friendships, hearts, or phones because of FLAMES 😅
-    </p>
+    <p class="funny">This is just a game. Don’t break friendships, hearts, or phones because of FLAMES 😅</p>
 
 </div>
 
+
+
+
 <script>
 const music = document.getElementById("bgMusic");
-
 function toggleMusic(){
-    if(music.paused){
-        music.play();
-    } else {
-        music.pause();
-    }
+    if(music.paused) music.play();
+    else music.pause();
 }
 
 const toggle = document.getElementById("darkModeToggle");
-
 toggle.addEventListener("click", () => {
     document.body.classList.toggle("dark");
-    toggle.textContent = document.body.classList.contains("dark")
-        ? "☀️ Light Mode"
-        : "🌙 Dark Mode";
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️ Light Mode" : "🌙 Dark Mode";
 });
 </script>
+
 
 </body>
 </html>

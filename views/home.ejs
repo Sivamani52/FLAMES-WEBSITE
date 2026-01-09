@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -79,6 +79,122 @@
 
         <label>Your Friend's Name</label>
         <input type="text" name="FrdName" required minlength="4">
+
+        <button type="submit">Check Result</button>
+    </form>
+
+    <div class="funny-text">
+        😄 Don’t worry… even if FLAMES says “Enemies”, you still have to attend the same class together!
+    </div>
+</div>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>Flames Website</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #86f1ff, #ffd3f8);
+            padding: 12px;
+        }
+
+        .card{
+            background: white;
+            padding: 22px 18px;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+            /* responsive width */
+            width: 100%;
+            max-width: 380px;
+        }
+
+        h2{
+            margin-top: 0;
+            font-size: clamp(20px, 5vw, 26px);
+        }
+
+        label{
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input{
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border-radius: 10px;
+            border: 1px solid #bfbfbf;
+            font-size: 14px;
+        }
+
+        button{
+            margin-top: 18px;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #00bcd4;
+            color: white;
+            font-size: 15px;
+        }
+
+        button:active{
+            transform: scale(0.98);
+        }
+
+        .funny-text{
+            margin-top: 12px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* extra small phone screens */
+        @media (max-width: 360px){
+            .card{
+                padding: 16px 12px;
+            }
+
+            input, button{
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>🔥 FLAMES Checker</h2>
+
+    <form action="/user" method="POST">
+        <label>Your Name</label>
+        <input type="text" name="name" required minlength="4" placeholder="Enter your name">
+
+        <label>Your Friend's Name</label>
+        <input type="text" name="FrdName" required minlength="4" placeholder="Enter friend's name">
 
         <button type="submit">Check Result</button>
     </form>
