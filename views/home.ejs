@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flames Website</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #86f1ff, #ffd3f8);
+        }
+
+        .card{
+            background: white;
+            padding: 30px 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            width: 320px;
+            text-align: center;
+        }
+
+        h2{
+            margin-top: 0;
+        }
+
+        label{
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input{
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button{
+            margin-top: 18px;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #00bcd4;
+            color: white;
+        }
+
+        button:hover{
+            transform: scale(1.03);
+        }
+
+        .funny-text{
+            margin-top: 12px;
+            font-size: 12px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>🔥 FLAMES Checker</h2>
+
+    <form action="/user" method="POST">
+        <label>Your Name</label>
+        <input type="text" name="name" required minlength="4">
+
+        <label>Your Friend's Name</label>
+        <input type="text" name="FrdName" required minlength="4">
+
+        <button type="submit">Check Result</button>
+    </form>
+
+    <div class="funny-text">
+        😄 Don’t worry… even if FLAMES says “Enemies”, you still have to attend the same class together!
+    </div>
+</div>
+
+</body>
+</html>
