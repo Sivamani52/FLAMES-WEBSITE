@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql2');
+// const mysql = require('mysql2');
 const path = require('path');
 
 const app = express();
@@ -11,12 +11,32 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // MySQL connection
+// const connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     database: 'flames',
+//     password: 'sivamani@524323'
+// });
+
+
+
+// railway databse connection
+
+const mysql = require("mysql2");
+
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    database: 'flames',
-    password: 'sivamani@524323'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT
 });
+
+connection.connect((err) => {
+  if (err) console.log("DB connection failed:", err);
+  else console.log("DB connected successfully");
+});
+// upto railway connection
 
 app.get("/", (req, res) => {
     res.render('home.ejs');
