@@ -124,6 +124,6 @@ app.get("/result/:id", (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT,'0.0.0.0', () => {
     console.log('Server running successfully on port', PORT);
 });
