@@ -1,5 +1,5 @@
 const express = require('express');
-// const mysql = require('mysql2');
+const mysql = require('mysql2');
 const path = require('path');
 
 const app = express();
@@ -22,7 +22,7 @@ app.use(express.static('public'));
 
 // railway databse connection
 
-const mysql = require("mysql2");
+// const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
