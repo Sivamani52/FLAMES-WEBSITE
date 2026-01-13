@@ -1,6 +1,7 @@
 const express = require('express');
+require("dotenv").config();
 const mysql = require('mysql2');
-require('dotenv').config();
+
 const path = require('path');
 
 const app = express();
@@ -25,13 +26,16 @@ app.use(express.static('public'));
 
 // const mysql = require("mysql2");
 
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT
-});
+// const connection = mysql.createConnection({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASSWORD,
+//   database: process.env.DB_NAME,
+//   port: process.env.DB_PORT
+// });
+
+const connection = mysql.createConnection(process.env.DATABASE_URL);
+
 
 connection.connect((err) => {
   if (err) console.log("DB connection failed:", err);
