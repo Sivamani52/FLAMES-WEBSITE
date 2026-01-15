@@ -2,161 +2,205 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Flames Answer</title>
 
 <style>
-    *{
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-    }
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
+body{
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffb7ff, #b3e5ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 0.5s, color 0.5s;
+    overflow-x: hidden;
+}
+
+body.dark{
+    background: #121212;
+    color: #f1f1f1;
+}
+
+.page{
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+}
+
+.card{
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 22px 18px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+    text-align: center;
+    transition: background 0.5s, color 0.5s;
+}
+
+body.dark .card{
+    background: #1e1e1e;
+    color: #f1f1f1;
+}
+
+h3{
+    margin-top: 0;
+    font-size: clamp(18px, 5vw, 22px);
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+button{
+    border-radius: 12px;
+    border: none;
+    background: #00bcd4;
+    color: white;
+    font-weight: bold;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    min-width: 140px;
+}
+
+button:active{
+    transform: scale(0.96);
+}
+
+.result{
+    font-size: clamp(15px, 4vw, 18px);
+    font-weight: bold;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.img{
+    width: 100%;
+    max-width: 260px;
+    border-radius: 15px;
+    margin: 12px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.35);
+}
+
+p.funny{
+    font-size: clamp(12px, 3.5vw, 14px);
+    margin: 6px 0;
+}
+
+.home{
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+}
+
+/* -------- LAPTOP / DESKTOP -------- */
+@media(min-width: 768px){
     body{
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, #ffb7ff, #b3e5ff);
-        color: #222;
-        transition: background 0.5s, color 0.5s;
-        padding: 12px;
     }
 
-    body.dark{
-        background: #121212;
-        color: #f1f1f1;
+    .page{
+        max-height: 90vh;
     }
 
     .card{
-        background: #ffffff;
-        padding: 22px 18px;
-        border-radius: 18px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        text-align: center;
-        width: 100%;
-        max-width: 450px;
-        transition: background 0.5s, color 0.5s;
+        padding: 26px 22px;
     }
 
-    body.dark .card{
-        background: #1e1e1e;
-        color: #f1f1f1;
+    .home{
+        position: absolute;
+        top: -52px;
+        right: 0;
+        justify-content: flex-end;
     }
+}
 
-    h3{
-        margin-top: 0;
-        font-size: clamp(18px, 5vw, 22px);
-    }
-
-    .result{
-        font-size: clamp(15px, 4vw, 18px);
-        font-weight: bold;
-        margin-top: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        text-align: center;
-    }
-
-    .img{
-        width: 100%;
-        max-width: 260px;
-        height: auto;
-        border-radius: 15px;
-        display: block;
-        margin: 16px auto;
-        box-shadow: 0 0 10px rgba(0,0,0,0.35);
-    }
-
+/* -------- SMALL MOBILE -------- */
+@media(max-width: 360px){
     button{
-        border-radius: 12px;
-        border: none;
-        background: #00bcd4;
-        color: white;
-        font-weight: bold;
-        padding: 12px 14px;
-        cursor: pointer;
-        margin: 10px 5px 0 5px;
-        transition: transform 0.2s;
-        min-width: 120px;
+        width: 100%;
     }
-
-    button:active{
-        transform: scale(0.97);
-    }
-
-    p.funny{
-        font-size: clamp(12px, 3.5vw, 14px);
-        margin: 6px 0;
-    }
-
-    @media(max-width: 360px){
-        .card{
-            padding: 16px 12px;
-        }
-
-        button{
-            width: 100%;
-        }
-    }
+}
 </style>
 </head>
+
 <body>
 
-<div class="card">
+<div class="page">
 
-    <h3>🔥 This is only a game — not reality 😄</h3>
-
-    <div>
-        <button id="darkModeToggle">🌙 Dark Mode</button>
-        <button onclick="toggleMusic()">🎵 Music On/Off</button>
+    <div class="home">
+        <form action="/" method="GET">
+            <button style="color:white;">Back to Home</button>
+        </form>
     </div>
 
-    <audio id="bgMusic" src="/music/indilla.mpeg" autoplay loop></audio>
+    <div class="card">
 
-    <div class="result">
-        <div>
-            <%= realname %> and <%= ActalFrdname %> become 👉
-            <span style="color:rgba(0,128,0,0.7)"><%= relationship %></span>
+        <h3>🔥 This is only a game — not reality 😄</h3>
+
+        <div class="controls">
+            <button id="darkModeToggle">🌙 Dark Mode</button>
+            <button onclick="toggleMusic()">🎵 Music On/Off</button>
         </div>
 
-        <% if (relationship === 'Friends') { %>
-            <img src="/images/friends.jpg" class="img">
-            <p class="funny">Friends forever… until someone eats the last pizza slice 🍕😂</p>
-        <% } %>
+        <audio id="bgMusic" src="/music/indilla.mpeg" autoplay loop></audio>
 
-        <% if (relationship === 'Lovers') { %>
-            <img src="/images/love.jpg" class="img">
-            <p class="funny">💖 Lovers detected! Now stop checking FLAMES and start talking 😏</p>
-        <% } %>
+        <div class="result">
+            <div>
+                <%= realname %> and <%= ActalFrdname %> become 👉
+                <span style="color:rgba(0,128,0,0.7)"><%= relationship %></span>
+            </div>
 
-        <% if (relationship === 'Affection') { %>
-            <img src="/images/affection.jpg" class="img">
-            <p class="funny">Lots of affection 😊 but the Wi-Fi password is still secret!</p>
-        <% } %>
+            <% if (relationship === 'Friends') { %>
+                <img src="/images/friends.jpg" class="img">
+                <p class="funny">Friends forever… until someone eats the last pizza slice 🍕😂</p>
+            <% } %>
 
-        <% if (relationship === 'Marriage') { %>
-            <img src="/images/marriage.jpg" class="img">
-            <p class="funny">Your future kids are already laughing at this result 😆</p>
-        <% } %>
+            <% if (relationship === 'Lovers') { %>
+                <img src="/images/love.jpg" class="img">
+                <p class="funny">💖 Lovers detected! Now stop checking FLAMES and start talking 😏</p>
+            <% } %>
 
-        <% if (relationship === 'Enemies') { %>
-            <img src="/images/enemies.jpg" class="img">
-            <p class="funny">Oops 😮 You both are enemies… but pizza fixes everything 🍕</p>
-        <% } %>
+            <% if (relationship === 'Affection') { %>
+                <img src="/images/affection.jpg" class="img">
+                <p class="funny">Lots of affection 😊 but the Wi-Fi password is still secret!</p>
+            <% } %>
 
-        <% if (relationship === 'Siblings') { %>
-            <img src="/images/siblings.jpg" class="img">
-            <p class="funny">Siblings detected: free insults for a lifetime 😆</p>
-        <% } %>
+            <% if (relationship === 'Marriage') { %>
+                <img src="/images/marriage.jpg" class="img">
+                <p class="funny">Your future kids are already laughing at this result 😆</p>
+            <% } %>
+
+            <% if (relationship === 'Enemies') { %>
+                <img src="/images/enemies.jpg" class="img">
+                <p class="funny">Oops 😮 You both are enemies… but pizza fixes everything 🍕</p>
+            <% } %>
+
+            <% if (relationship === 'Siblings') { %>
+                <img src="/images/siblings.jpg" class="img">
+                <p class="funny">Siblings detected: free insults for a lifetime 😆</p>
+            <% } %>
+        </div>
+
+        <p class="funny">
+            This is just a game. Don’t break friendships, hearts, or phones because of FLAMES 😅
+        </p>
+
     </div>
-
-    <p class="funny">
-        This is just a game. Don’t break friendships, hearts, or phones because of FLAMES 😅
-    </p>
 
 </div>
 
