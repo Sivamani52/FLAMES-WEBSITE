@@ -1,188 +1,132 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flames Website</title>
-    <style>
-        *{
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body{
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #86f1ff, #ffd3f8);
-        }
-
-        .card{
-            background: white;
-            padding: 30px 40px;
-            border-radius: 18px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            width: 320px;
-            text-align: center;
-        }
-
-        h2{
-            margin-top: 0;
-        }
-
-        label{
-            display: block;
-            margin-top: 12px;
-            font-weight: bold;
-        }
-
-        input{
-            width: 100%;
-            padding: 8px 10px;
-            margin-top: 5px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
-
-        button{
-            margin-top: 18px;
-            padding: 10px 18px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            background-color: #00bcd4;
-            color: white;
-        }
-
-        button:hover{
-            transform: scale(1.03);
-        }
-
-        .funny-text{
-            margin-top: 12px;
-            font-size: 12px;
-            color: #555;
-        }
-    </style>
-</head>
-<body>
-
-<div class="card">
-    <h2>🔥 FLAMES Checker</h2>
-
-    <form action="/user" method="POST">
-        <label>Your Name</label>
-        <input type="text" name="name" required minlength="4">
-
-        <label>Your Friend's Name</label>
-        <input type="text" name="FrdName" required minlength="4">
-
-        <button type="submit">Check Result</button>
-    </form>
-
-    <div class="funny-text">
-        😄 Don’t worry… even if FLAMES says “Enemies”, you still have to attend the same class together!
-    </div>
-</div>
-
-</body>
-</html> -->
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Flames Website</title>
+<title>Flames Website</title>
 
-    <style>
-        *{
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #86f1ff, #ffd3f8);
+        padding: 12px;
+    }
+
+    .card {
+        background: white;
+        padding: 24px 20px;
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        width: 100%;
+        max-width: 380px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-top: 0;
+        font-size: clamp(20px, 5vw, 26px);
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 14px;
+        color: #444;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        margin-top: 5px;
+        border-radius: 10px;
+        border: 1px solid #bfbfbf;
+        font-size: 14px;
+    }
+
+    /* Custom gender buttons */
+    .gender-toggle {
+        display: flex;
+        gap: 12px;
+        margin-top: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .gender-toggle input[type="radio"] {
+        display: none;
+    }
+
+    .gender-toggle label {
+        padding: 10px 20px;
+        border-radius: 30px;
+        border: 1px solid #00bcd4;
+        cursor: pointer;
+        font-weight: bold;
+        color: #00bcd4;
+        transition: all 0.2s ease;
+        user-select: none;
+        min-width: 80px;
+        text-align: center;
+    }
+
+    .gender-toggle input[type="radio"]:checked + label {
+        background-color: #00bcd4;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    button {
+        margin-top: 18px;
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: bold;
+        background-color: #00bcd4;
+        color: white;
+        font-size: 15px;
+        transition: transform 0.1s ease;
+    }
+
+    button:active {
+        transform: scale(0.97);
+    }
+
+    .funny-text {
+        margin-top: 12px;
+        font-size: 12px;
+        color: #555;
+    }
+
+    @media (max-width: 360px){
+        .card {
+            padding: 16px 12px;
         }
 
-        body{
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #86f1ff, #ffd3f8);
-            padding: 12px;
+        input[type="text"], button {
+            font-size: 13px;
         }
 
-        .card{
-            background: white;
-            padding: 22px 18px;
-            border-radius: 18px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-
-            /* responsive width */
-            width: 100%;
-            max-width: 380px;
+        .gender-toggle label {
+            font-size: 13px;
+            padding: 8px 16px;
+            min-width: 70px;
         }
-
-        h2{
-            margin-top: 0;
-            font-size: clamp(20px, 5vw, 26px);
-        }
-
-        label{
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        input{
-            width: 100%;
-            padding: 12px;
-            margin-top: 5px;
-            border-radius: 10px;
-            border: 1px solid #bfbfbf;
-            font-size: 14px;
-        }
-
-        button{
-            margin-top: 18px;
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: bold;
-            background-color: #00bcd4;
-            color: white;
-            font-size: 15px;
-        }
-
-        button:active{
-            transform: scale(0.98);
-        }
-
-        .funny-text{
-            margin-top: 12px;
-            font-size: 12px;
-            color: #555;
-        }
-
-        /* extra small phone screens */
-        @media (max-width: 360px){
-            .card{
-                padding: 16px 12px;
-            }
-
-            input, button{
-                font-size: 13px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
@@ -190,11 +134,33 @@
     <h2>🔥 FLAMES Checker</h2>
 
     <form action="/user" method="POST">
+        <!-- Your Name -->
         <label>Your Name</label>
         <input type="text" name="name" required minlength="4" placeholder="Enter your name">
 
+        <!-- Your Gender -->
+        <label>Your Gender:</label>
+        <div class="gender-toggle">
+            <input type="radio" id="male1" name="gender1" value="Male" required>
+            <label for="male1">Male</label>
+
+            <input type="radio" id="female1" name="gender1" value="Female">
+            <label for="female1">Female</label>
+        </div>
+
+        <!-- Friend's Name -->
         <label>Your Friend's Name</label>
         <input type="text" name="FrdName" required minlength="4" placeholder="Enter friend's name">
+
+        <!-- Friend's Gender -->
+        <label>Friend's Gender:</label>
+        <div class="gender-toggle">
+            <input type="radio" id="male2" name="gender2" value="Male" required>
+            <label for="male2">Male</label>
+
+            <input type="radio" id="female2" name="gender2" value="Female">
+            <label for="female2">Female</label>
+        </div>
 
         <button type="submit">Check Result</button>
     </form>
